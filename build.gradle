@@ -1,0 +1,39 @@
+buildscript { //이 프로젝트의 플러그인 의존성 관리를 위한 설정
+    ext{ //ext는 전역변수를 생성
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {//각종 의존성들을의 원격 저장소 지정
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin :'java'
+apply plugin :'eclipse'
+apply plugin :'org.springframework.boot'
+apply plugin :'io.spring.dependency-management'
+
+group 'com.study'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {//프로젝트 게발에 필요한 의존성들을 선언하는 곳
+    compile('org.springframework.boot:spring-boot-starter-web')
+//    compile('org.projectlombok:lombok')
+//    compile('com.h2database:h2')
+//    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+//    compile('org.springframework.boot:spring-boot-starter-mustache')
+    //compile('org.springframework.boot:spring-boot-starter-security')
+//    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+//    compile('org.springframework.session:spring-session-jdbc')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    //testCompile('org.springframework.security:spring-security-test')
+}
